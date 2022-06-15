@@ -9,12 +9,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @meanings.each do |meaning| %>
-      <td><%= meaning.english_word %></td>
-      <td><%= meaning.translation %></td>
-      <td>Placeholder</td>
-    <% end %>
     <tr>
+      <% @meanings.each do |meaning| %>
+        <td><%= meaning.english_word %></td>
+        <td><%= meaning.translation %></td>
+        <td>Placeholder</td>
+      <% end %>
     </tr>
   </tbody>
 </table>
