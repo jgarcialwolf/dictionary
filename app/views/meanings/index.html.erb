@@ -1,0 +1,20 @@
+<h1>Meanings Index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word in English</th>
+      <th>Translation</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meanings.each do |meaning| %>
+      <td><%= meaning.english_word %></td>
+      <td><%= meaning.translation %></td>
+      <td>Placeholder</td>
+    <% end %>
+    <tr>
+    </tr>
+  </tbody>
+</table>
