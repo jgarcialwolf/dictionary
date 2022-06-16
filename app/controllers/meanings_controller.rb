@@ -9,13 +9,18 @@ class MeaningsController < ApplicationController
   end
 
   def new
-    
+    @meaning = Meaning.new
   end
   
   def create
     @meaning = Meaning.new(params.require(:meaning).permit(:english_word, :translation))
-    @meaning.save
-    redirect_to @meaning
+    if @meaning.save
+      flash[:notice] = "Meaning was stored successfully."
+      redirect_to @meaning
+    else
+      render :new, status: 422
+    end
+    
   end
   
   
