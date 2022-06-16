@@ -1,0 +1,15 @@
+<h1>Look up new word:</h1>
+
+<%= form_with scope: :meaning, url: meanings_path, local: true do |f| %>
+  <p>
+    <%= f.label :english_word %>
+    <%= f.text_field  :english_word %>
+  </p>
+  <p>
+    <%= f.label :translation %>
+    <%= f.text_field :translation %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
