@@ -1,4 +1,4 @@
-<h1>Look up new word:</h1>
+<h1>Edit the meaning of your word:</h1>
 
 <% if @meaning.errors.any? %>
   <h2>The following errors prevented the article from being saved:</h2>
@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<%= form_with scope: :meaning, url: meanings_path, local: true do |f| %>
+<%= form_with(model: @meaning, local: true) do |f| %>
   <p>
     <%= f.label :english_word %>
     <%= f.text_field  :english_word %>
