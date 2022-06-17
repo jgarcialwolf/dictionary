@@ -35,5 +35,11 @@ class MeaningsController < ApplicationController
       render :edit, status: 422
     end
   end
+
+  def destroy
+    @meaning = Meaning.find(params[:id])
+    @meaning.destroy
+    redirect_to meanings_path
+  end
   
 end

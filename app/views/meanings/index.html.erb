@@ -13,7 +13,11 @@
       <tr>
         <td><%= meaning.english_word %></td>
         <td><%= meaning.translation %></td>
-        <td>Placeholder</td>
+        <td><%= link_to "Edit", edit_meaning_path(meaning) %></td>
+        <td><%= link_to "Delete", meaning_path(meaning), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"} %>
+        </td>
       </tr>
     <% end %>
   </tbody>
