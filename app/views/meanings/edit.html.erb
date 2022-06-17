@@ -1,0 +1,26 @@
+<h1>Edit the meaning of your word:</h1>
+
+<% if @meaning.errors.any? %>
+  <h2>The following errors prevented the article from being saved:</h2>
+  <ul>
+    <% @meaning.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @meaning, local: true) do |f| %>
+  <p>
+    <%= f.label :english_word %>
+    <%= f.text_field  :english_word %>
+  </p>
+  <p>
+    <%= f.label :translation %>
+    <%= f.text_field :translation %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p>Cancel and return to <%= link_to "Meanings", meanings_path %></p>
