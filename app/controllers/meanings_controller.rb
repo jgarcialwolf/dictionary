@@ -1,11 +1,11 @@
 class MeaningsController < ApplicationController
+  before_action :set_meaning, only: [:edit, :update, :show, :destroy]
 
   def index
     @meanings = Meaning.all
   end
   
   def show
-    @meaning = Meaning.find(params[:id])
   end
 
   def new
@@ -13,11 +13,10 @@ class MeaningsController < ApplicationController
   end
 
   def edit
-    @meaning = Meaning.find(params[:id])
   end
   
   def create
-    @meaning = Meaning.new(params.require(:meaning).permit(:english_word, :translation))
+    @meaning = Meaning.new(meaning_params)
     if @meaning.save
       flash[:notice] = "Meaning was stored successfully."
       redirect_to @meaning
@@ -27,8 +26,7 @@ class MeaningsController < ApplicationController
   end
 
   def update
-    @meaning = Meaning.find(params[:id])
-    if @meaning.update(params.require(:meaning).permit(:english_word, :translation))
+    if @meaning.update(meaning_params)
       flash[:notice] = "Meaning was updated successfully"
       redirect_to @meaning
     else
@@ -37,9 +35,18 @@ class MeaningsController < ApplicationController
   end
 
   def destroy
-    @meaning = Meaning.find(params[:id])
     @meaning.destroy
     redirect_to meanings_path
+  end
+
+  private
+
+  def set_meaning
+    @meaning = Meaning.find(params[:id])
+  end
+
+  def meaning_params
+    params.require(:meaning).permit(:english_word, :translation)
   end
   
 end
