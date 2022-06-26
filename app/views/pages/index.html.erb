@@ -1,1 +1,10 @@
-<h1>This is the home page for dictionary app</h1>
+<h2>The word you are looking up is: <%= @result[0]["word"] %></h2>
+
+<p>the temporary object returning from the api is:</p>
+<%= @result %>
+
+<% @meanings.each do |meaning| %>
+  <h4>Meaning:</h4>
+  <p><%= meaning["partOfSpeech"] %></p>
+  <p><%= meaning["definitions"][0]["definition"] %></p>
+<% end %>
