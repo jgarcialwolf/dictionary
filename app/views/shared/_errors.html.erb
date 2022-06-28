@@ -1,0 +1,11 @@
+<% if obj.errors.any? %>
+  <h4>The following errors prevented your submission from being saved</h4>
+  <ul>
+    <% obj.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <button type="button" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+<% end %>
