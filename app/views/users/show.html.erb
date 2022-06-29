@@ -1,0 +1,10 @@
+<h1><%= @user.username %>'s profile</h1>
+<h3>saved meanings:</h3>
+
+<ul>
+  <% @user.meanings.each do |meaning| %>
+    <li>
+      <%= meaning.english_word %>: <%= meaning.translation %>
+    </li>
+  <% end %>
+</ul>
