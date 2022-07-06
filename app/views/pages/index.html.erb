@@ -1,12 +1,6 @@
+<p>Learning English?</p>
+<p>This page uses a monolingual dictionary, but it allows you to store your own interpretations and translations for the words you look up.</p>
+<p>Review your saved words</p>
+
 <%= link_to "Login", login_path %>
 <%= link_to "Sign up", signup_path %>
-<h2>The word you are looking up is: <%= @result[0]["word"] %></h2>
-
-<p>the temporary object returning from the api is:</p>
-<%= @result %>
-
-<% @meanings.each do |meaning| %>
-  <h4>Meaning:</h4>
-  <p><%= meaning["partOfSpeech"] %></p>
-  <p><%= meaning["definitions"][0]["definition"] %></p>
-<% end %>

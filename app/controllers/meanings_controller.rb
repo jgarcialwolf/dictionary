@@ -1,3 +1,4 @@
+# require 'rest-client'
 class MeaningsController < ApplicationController
   before_action :set_meaning, only: [:edit, :update, :show, :destroy]
 
@@ -10,6 +11,14 @@ class MeaningsController < ApplicationController
 
   def new
     @meaning = Meaning.new
+    
+    query = params[:query]
+    if query
+      url = "https://api.dictionaryapi.dev/api/v2/entries/en/#{query}"
+      response = RestClient.get(url)
+      @result = JSON.parse(response)
+    end
+    
   end
 
   def edit
