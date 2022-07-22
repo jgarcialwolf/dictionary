@@ -23,13 +23,16 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", login_path %>
+              <%= link_to "Log in", login_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Signup", signup_path %>
+              <%= link_to "Log out", logout_path, class: "nav-link", data: {turbo_method: :delete} %>
             </li>
             <li class="nav-item">
-              <%= link_to "Meanings", meanings_path %>
+              <%= link_to "Signup", signup_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Meanings", meanings_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,9 +44,6 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
