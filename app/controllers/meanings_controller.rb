@@ -26,6 +26,7 @@ class MeaningsController < ApplicationController
   
   def create
     @meaning = Meaning.new(meaning_params)
+    @meaning.user = current_user
     if @meaning.save
       flash[:notice] = "Meaning was stored successfully."
       redirect_to @meaning
