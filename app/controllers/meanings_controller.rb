@@ -1,6 +1,7 @@
 # require 'rest-client'
 class MeaningsController < ApplicationController
-  before_action :set_meaning, only: [:edit, :update, :show, :destroy]
+  before_action :set_meaning, only: [:edit, :update, :show, :destroy, :require_same_user]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @meanings = Meaning.all
@@ -58,5 +59,12 @@ class MeaningsController < ApplicationController
   def meaning_params
     params.require(:meaning).permit(:english_word, :translation)
   end
-  
+
+  def require_same_user
+    if current_user != @meaning.user
+      flash[:alert] = "You can only edit or delete your own words"
+      redirect_to meanings_path
+    end
+  end
+
 end
