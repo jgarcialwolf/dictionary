@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome #{user.username}"
       redirect_to user
     else
-      flash.now[:alert] = "Something went wrong!!"
+      flash.now[:alert] = "Wrong Credentials!!"
       render 'new', status: :unprocessable_entity
     end
   end
