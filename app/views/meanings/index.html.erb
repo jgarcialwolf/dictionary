@@ -1,26 +1,27 @@
-<h1><%= current_user.username if current_user%> Stored Meanings:</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Word in English</th>
-      <th>Translation</th>
-      <th colspan="2">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @meanings.each do |meaning| %>
-      <% if logged_in? && meaning.user == current_user %>
-        <tr>
-          <td><%= meaning.english_word %></td>
-          <td><%= meaning.translation %></td>
-          <td><%= link_to "Edit", edit_meaning_path(meaning) %></td>
-          <td><%= link_to "Delete", meaning_path(meaning), data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"} %>
-          </td>
-        </tr>
+<div class="container">
+  <h1><%= current_user.username if current_user%> Stored Meanings:</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Word in English</th>
+        <th>Translation</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @meanings.each do |meaning| %>
+        <% if logged_in? && meaning.user == current_user %>
+          <tr>
+            <td><%= meaning.english_word %></td>
+            <td><%= meaning.translation %></td>
+            <td><%= link_to "Edit", edit_meaning_path(meaning) %></td>
+            <td><%= link_to "Delete", meaning_path(meaning), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"} %>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
