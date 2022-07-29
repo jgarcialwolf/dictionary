@@ -3,13 +3,25 @@
     <div class="col-lg-6">
       <h1 class="my-3">Login</h1>
       <%= form_with(scope: :session, url: login_path) do |f| %>
+
         <div>
           <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, placeholder: "Enter your email address", class: "form-control mb-3" %>
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-envelope-fill"></i>
+            </span>
+            <%= f.email_field :email, placeholder: "Enter your email address", class: "form-control" %>
+          </div>
         </div>
+
         <div>
           <%= f.label :password, class: "form-label" %>
-          <%= f.password_field :password, placeholder: "Enter your password", class: "form-control mb-3" %>
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-lock-fill"></i>
+            </span>
+            <%= f.password_field :password, placeholder: "Enter your password", class: "form-control" %>
+          </div>
         </div>
         <div>
           <%= f.submit "Login", class: "btn btn-primary mt-3" %>
