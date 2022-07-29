@@ -1,11 +1,11 @@
 <div class="container">
   <h1><%= current_user.username if current_user%> Stored Meanings:</h1>
-  <table>
+  <table  class="table table-striped">
     <thead>
       <tr>
-        <th>Word in English</th>
-        <th>Translation</th>
-        <th colspan="2">Actions</th>
+        <th scope="col">Word in English</th>
+        <th scope="col">Translation</th>
+        <th scope="col" colspan="2">Actions</th>
       </tr>
     </thead>
     <tbody>
