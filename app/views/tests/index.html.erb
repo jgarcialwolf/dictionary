@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <%= current_user.username %>
+  <p class="text-warning">Tests Under construction!</p>
+  <% @meanings.each do |meaning| %>
+    <% if logged_in? && meaning.user == current_user %>
+      <p><%= meaning.english_word %></p>
+    <% end %>
+  <% end %>
+</div>
